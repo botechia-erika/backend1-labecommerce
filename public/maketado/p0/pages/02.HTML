@@ -1,0 +1,519 @@
+-
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
+
+  <!--GOOGLE FONTS-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quantico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+
+  <title>home</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      height: 100%;
+      width: 100%;
+      padding: 2rem;
+    }
+
+    #navbarSupportedContent,
+    .navbarCustomize {
+      background-color: rgb(255, 187, 0);
+      border-radius: 10px;
+      margin-top: 50px;
+      width: 90vw;
+      min-height: 100vh;
+      height: 100%;
+      margin: auto;
+    }
+
+    .navCustomText {
+      font-family: 'Quantico' sans-serif;
+    }
+
+    a {
+      outline: none;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    a:hover,
+    a:active,
+    a:focus {
+      outline: none;
+      text-decoration: none;
+    }
+
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0;
+      padding: 0;
+    }
+
+    .article-section {
+      display: flex;
+      flex-flow: column wrap;
+      width: 90%;
+      margin-left: 5%;
+      margin-bottom: 5vh;
+      height: 100%;
+
+    }
+
+    .grid-title {
+      position: relative;
+      width: 100%;
+      text-align: center;
+      margin: 30px 0 15px 0;
+    }
+
+    .grid-title:first-child {
+      margin-top: 15px;
+    }
+
+    .grid-title h2 {
+      font-size: 35px;
+      font-weight: 800;
+      color: #ffc40024;
+    }
+
+    /* -------------- card Grid Style --------------- */
+
+    .card-grid {
+      display: flex;
+      flex-flow: row wrap;
+      height: 25%;
+      margin-bottom: 60px;
+    }
+
+    .card-grid .card-item {
+      width: 25%;
+      padding: 15px;
+
+    }
+
+    @media (max-width: 992px) {
+      .card-grid .card-item {
+        width: 33.33%;
+        height: auto;
+        margin-bottom: 180px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .card-grid .card-item {
+        width: 50%;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .card-grid .card-item {
+        width: 100%;
+        height: 100%;
+        margin-bottom: 40px;
+        max-height: 300px;
+      }
+    }
+
+    .card-grid .card-single {
+      position: relative;
+      width: 100%;
+
+    }
+
+    .card-grid .card-img,
+    .card-grid .card-content {
+      position: relative;
+      width: 100%;
+      background: #fff7ab;
+      overflow: hidden;
+    }
+
+    .card-grid .card-img img {
+      display: block;
+      width: 100%;
+      transition: .3s;
+    }
+
+    /* --- card Grid 1 --- */
+
+    .card-grid.grid-1 .card-single:hover {
+      box-shadow: 0 0 5px #fdff8f;
+    }
+
+    .card-grid.grid-1 .card-single:hover img {
+      transform: scale(1.1);
+      -webkit-filter: grayscale(100%);
+      filter: grayscale(100%);
+    }
+
+    .card-grid.grid-1 .card-status {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    .card-grid.grid-1 .card-status span:first-child {
+      display: inline-block;
+      float: left;
+      padding: 5px 10px;
+      font-size: 14px;
+      font-weight: 300;
+      color: #ffe601;
+      background: #010500;
+      opacity: .8;
+    }
+
+    .card-grid.grid-1 .card-status span:last-child {
+      display: inline-block;
+      float: right;
+      padding: 5px 10px;
+      font-size: 14px;
+      font-weight: 300;
+      color: #000000;
+      background: #9dff00;
+      opacity: .8;
+    }
+
+    .card-grid.grid-1 .card-action {
+      position: absolute;
+      height: 40px;
+      width: 100%;
+      text-align: center;
+      top: calc(50% - 20px);
+      font-size: 0;
+      transition: .3s;
+      opacity: 0;
+    }
+
+    .card-grid.grid-1 .card-action a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      padding: 10px 0;
+      margin: 0 2px;
+      font-size: 16px;
+      color: #000000;
+      background: #eeeeee;
+    }
+
+    .card-grid.grid-1 .card-action a:hover {
+      background: #a25900a2;
+    }
+
+    a,
+    .nav-link {
+      color: black;
+      text-decoration: none;
+    }
+
+    .card-grid.grid-1 .card-single:hover .card-action {
+      opacity: 1;
+    }
+
+    .card-grid.grid-1 .card-content {
+      padding: 5px;
+    }
+
+    .card-grid.grid-1 .card-title,
+    .card-grid.grid-1 .card-overview,
+    .card-grid.grid-1 .card-price {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 5px;
+    }
+
+    .card-grid.grid-1 .card-price {
+      margin-bottom: 30px;
+    }
+
+    .card-grid.grid-1 .card-title h2 {
+      font-size: 22px;
+      font-weight: 200;
+    }
+
+    .card-grid.grid-1 .card-title h2 a {
+      color: #bf1d1d;
+    }
+
+    .card-grid.grid-1 .card-title h2 a:hover {
+      color: #ec0a0a;
+      font-weight: bolder;
+    }
+
+    .card-grid.grid-1 .card-overview i {
+      display: inline-block;
+      font-size: 16px;
+      color: #004705;
+    }
+
+    .card-grid.grid-1 .card-price h2:last-child {
+      margin-left: 10px;
+      color: #80750f;
+      text-decoration: line-through;
+
+      margin-bottom: 300px;
+    }
+
+    header {
+      /* Enable flex mode. */
+      display: flex;
+      /* Spread out the elements inside the header. */
+      flex-flow: row wrap;
+      /* Align items vertically in the center. */
+      align-items: space-around;
+      justify-content: space-around;
+      padding: 10px 10px 20px 10px;
+      color: #fff;
+      background-color: #000000;
+      height: 100%;
+    }
+
+    .bg-dark {
+      background-color: #ff5100;
+    }
+
+    .bg-blue {
+      background-color: #fdeded // #6200ff;
+    }
+
+    .bg-color-01 {
+      background-color: #087450
+    }
+
+    .text-light {
+      color: #fffb00;
+    }
+
+    .bg-banner-01 {
+      background-image: url('./../images/equipo/banner01.png');
+      background-size: cover;
+    }
+
+    .footer {
+      display: flex;
+      flex-flow: row wrap;
+      width: 100%;
+      height: 100%;
+      align-items: flex-end;
+      padding-top: 530px;
+    }
+
+    footer {
+      flex-flow: row wrap;
+      width: 90%;
+      min-height: 250px;
+      height: 100%;
+      justify-content: center;
+      align-self: center;
+      padding-top: 58px;
+    }
+
+    footer section {
+      display: flex;
+      flex-flow: row wrap;
+      width: 30%;
+      min-width: 300px;
+      max-height: 205px auto;
+    }
+  </style>
+
+</head>
+
+<body class="bg-dark">
+  <header>
+    <div class=" card-item d-flex flex-md-now-wrap justify-content-around
+    flex-wrap text-warning p-2 m-1 mt-2 mb-3 sl-2 text-light">
+
+
+      <h4 class="text-center text-light "> EQUIPO</h4>
+      <h4 class="text-center text-light ">EQUIPO</h4>
+      <h4 class="text-center text-light"> EQUIPO</h4>
+      <h4 class="text-center text-light"> EQUIPO </h4>
+
+
+
+    </div>
+
+    <h1 class="col-12 py-1 text-center  bg-warning display-header-01"> TORNEO
+      <span class="text-light bg-dark "> JUVENIL </span>
+    </h1>
+    </div>
+  </header>
+
+
+
+
+  <main class="mainTitle__container">
+    <h2> EN ESTA PAGINA</h2>
+  </main>
+  <div class="container">
+    <section class="article-section">
+      <div class="card-grid grid-1 ">
+        <div class="card-item ">
+          <div class="card-single ">
+            <div class="card-img ">
+              <img src="img/player-default-00.png " alt="card Image " />
+              <div class="card-status ">
+                <span># numero</span>
+                <span>posicion</span>
+              </div>
+              <div class="card-action ">
+                <a href=" "> <i class="fa-solid fa-magnifying-glass "></i>
+
+                  <a href=" "><i class="fa-solid fa-comment "></i></a>
+              </div>
+            </div>
+            <div class="card-content ">
+              <div class="card-title ">
+                <h2><a href=" ">cardNombre</a></h2>
+              </div>
+              <div class="card-overview ">
+                <p>Nacimiento:</p>
+                </p>Posicion:</p>
+              </div>
+              <div class="card-price ">
+                <p>Equipo</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-item ">
+          <div class="card-single ">
+            <div class="card-img ">
+              <img src="img/player-card-01.svg " alt="card Image " />
+              <div class="card-status ">
+                <span># numero</span>
+                <span>posicion</span>
+              </div>
+              <div class="card-action ">
+                <a href=" "> <i class="fa-solid fa-magnifying-glass "></i>
+
+                  <a href=" "><i class="fa-solid fa-comment "></i></a>
+              </div>
+            </div>
+            <div class="card-content ">
+              <div class="card-title ">
+                <h2><a href=" ">cardNombre</a></h2>
+              </div>
+              <div class="card-overview ">
+                <p>Nacimiento:</p>
+                </p>Posicion:</p>
+              </div>
+              <div class="card-price ">
+                <p>Equipo</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-item ">
+          <div class="card-single ">
+            <div class="card-img ">
+              <img src="img/player-card-01.svg " alt="card Image " />
+              <div class="card-status ">
+                <span># numero</span>
+                <span>posicion</span>
+              </div>
+              <div class="card-action ">
+                <a href=" "> <i class="fa-solid fa-magnifying-glass "></i>
+
+                  <a href=" "><i class="fa-solid fa-comment "></i></a>
+              </div>
+            </div>
+            <div class="card-content ">
+              <div class="card-title ">
+                <h2><a href=" ">cardNombre</a></h2>
+              </div>
+              <div class="card-overview ">
+                <p>Nacimiento:</p>
+                </p>Posicion:</p>
+              </div>
+              <div class="card-price ">
+                <p>Equipo</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-item ">
+          <div class="card-single ">
+            <div class="card-img ">
+              <img src="img/player-card-01.svg " alt="card Image " />
+              <div class="card-status ">
+                <span># numero</span>
+                <span>posicion</span>
+              </div>
+              <div class="card-action ">
+                <a href=" "> <i class="fa-solid fa-magnifying-glass "></i>
+
+                  <a href=" "><i class="fa-solid fa-comment "></i></a>
+              </div>
+            </div>
+            <div class="card-content ">
+              <div class="card-title ">
+                <h2><a href=" ">cardNombre</a></h2>
+              </div>
+              <div class="card-overview ">
+                <p>Nacimiento:</p>
+                </p>Posicion:</p>
+              </div>
+              <div class="card-price ">
+                <p>Equipo</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <footer>
+    <section>
+      <div><img src="assets/img/loja-0.png" alt="Logo de la empresa "></div>
+      <!-- Contenido de servicios -->
+      <li><a href="# ">Enlace 1</a></li>
+      <li><a href="# ">Enlace 2</a></li>
+      <li><a href="# ">Enlace 3</a></li>
+    </section>
+    <section>
+      <div><img src="assets/img/loja-0.png" alt="Logo de la empresa "></div>
+      <!-- Contenido de servicios -->
+      <li><a href="# ">Enlace 1</a></li>
+      <li><a href="# ">Enlace 2</a></li>
+      <li><a href="# ">Enlace 3</a></li>
+    </section>
+    <section>
+      <div><img src="assets/img/loja-0.png" alt="Logo de la empresa "></div>
+      <!-- Contenido de nosotros -->
+      <li><a href="# ">Enlace 1</a></li>
+      <li><a href="# ">Enlace 2</a></li>
+      <li><a href="# ">Enlace 3</a></li>
+    </section>
+    </div>
+  </footer>
+
+
+</body>
+
+</html>

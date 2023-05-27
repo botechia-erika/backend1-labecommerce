@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlexBox</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .centered {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    nav {
+      background-color: aquamarine;
+
+      position: sticky;
+      top: 0;
+      opacity: 0.3;
+
+      transition: 0.2s all;
+    }
+
+    header {
+      background-color: aqua;
+      height: 100vh;
+    }
+
+    h1 {
+      height: 10vh;
+    }
+
+
+    nav:hover {
+      opacity: 1;
+    }
+
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      /* flex-flow: row wrap; */
+      /*Propiedad shorthand para flex-wrap y flex-direction*/
+
+      justify-content: space-evenly;
+      align-items: center;
+
+      list-style-type: none;
+
+      height: 30px;
+
+      transition: 0.2s all;
+    }
+
+    nav ul:hover {
+      height: 50px;
+
+      opacity: 1;
+    }
+
+    nav ul li {
+      height: 100%;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      display: inline-block;
+      width: 150px;
+      height: 100%;
+
+      background-color: coral;
+      color: white;
+
+      border-radius: 10px;
+      transition: 0.2s all;
+    }
+
+    nav ul li a:hover {
+      background-color: black;
+      color: white;
+      border-radius: 5px;
+    }
+
+    main {
+      background-color: lightgray;
+    }
+
+    section {
+      display: flex;
+      flex-direction: column;
+      row-gap: 15px;
+
+      height: 50vh;
+      color: white;
+    }
+
+    section h2 {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 25px;
+      flex: 1;
+    }
+
+    section article {
+      display: flex;
+      align-items: stretch;
+      column-gap: 15px;
+      padding: 25px;
+      flex: 12;
+
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    section article p {
+      background-color: mediumvioletred;
+      border: 1px solid black;
+      padding: 15px;
+      flex: 2;
+    }
+
+    p#Universidad {
+      flex: 5;
+      order: 3;
+    }
+
+    p#Secundario {
+      flex: 1;
+    }
+
+    section#Estudios {
+      background-color: blueviolet;
+    }
+
+    section#Experiencia {
+      background-color: chartreuse;
+      color: black;
+    }
+
+    section#UnPocoSobreMi {
+      background-color: crimson;
+      height: 100vh;
+      padding-top: 3rem;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: gray;
+      padding: 15px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <ul> <!-- <ul> va a ser nuestro Flex container -->
+      <li> <!-- los <li> van a ser nuestros Flex Item -->
+        <a href="#Estudios" class="centered">Estudios</a>
+      </li>
+      <li>
+        <a href="#Experiencia" class="centered">Experiencia</a>
+      </li>
+      <li>
+        <a href="#UnPocoSobreMi" class="centered">Un poco sobre mi</a>
+      </li>
+    </ul>
+  </nav>
+  <header>
+    <h1 class="centered">FlexBox</h1>
+  </header>
+
+  <main>
+    <section id="UnPocoSobreMi">
+      <h2>Un poco sobre mi</h2>
+      <article>
+        <p>Un texto que cuenta brevemente mis gustos y mis hobbies</p>
+      </article>
+    </section>
+    <section id="Experiencia">
+      <h2>Experiencia</h2>
+      <article>
+        <p>Trabajo actual</p>
+        <p>Trabajo anterior</p>
+        <p>Primer trabajo</p>
+      </article>
+    </section>
+    <section id="UnPocoSobreMi">
+      <h2>Un poco sobre mi</h2>
+      <article>
+        <p>Un texto que cuenta brevemente mis gustos y mis hobbies</p>
+      </article>
+
+      <h2>Experiencia</h2>
+      <article>
+        <p>Trabajo actual</p>
+        <p>Trabajo anterior</p>
+        <p>Primer trabajo</p>
+      </article>
+    </section>
+  </main>
+  <footer class="centered">Codo a codo - Argentina 2022</footer>
+</body>
+
+</html>
