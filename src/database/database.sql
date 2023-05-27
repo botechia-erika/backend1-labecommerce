@@ -91,6 +91,59 @@ VALUES (
         8
     );
 
-price real [not null] description text [not null] image_url text [not null]};
+SELECT * FROM products;
 
-Table purchases{id text [pk, unique, not null] buyer text [not null, ref: > users.id] total_price real [not null] created_at text [not null, default: "DATETIME()"] paid integer [not null, default: 0]}Table purchases_products{purchase_id text [not null, ref: <> purchases.id] product_id text [not null, ref: <> products.id] quantity integer [not null, default: 1]}
+create TABLE
+    purchases(
+        id TEXT PRIMARY KEY NOT NULL UNIQUE,
+        product_id TEXT NOT NULL,
+        quantity INTEGER NOT NULL,
+        total_price REAL NOT NULL,
+        buyer_id TEXT NOT NULL,
+        FOREIGN KEY (product_id) REFERENCES products(id) ON UPDATE CASCADE ON DELETE CASCADE,
+        FOREIGN KEY (buyer_id) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE
+    );
+
+DROP TABLE purchases;
+
+INSERT INTO
+    purchases(
+        id,
+        product_id,
+        quantity,
+        total_price,
+        buyer_id
+    )
+VALUES ("PG001", "P001", 1, 1200, "u001"), ("PG002", "P002", 1, 95, "u002"), ("PG003", "P003", 1, 300, "u003");
+
+SELECT * FROM purchases;
+
+CREATE TABLE
+    sale(
+        purchase_id TEXT NOT NULL,
+        product_id TEXT NOT NULL,
+        FOREIGN KEY (purchase_id) REFERENCES purchases(id) ON UPDATE CASCADE ON DELETE CASCADE,
+        FOREIGN KEY (product_id) REFERENCES products(id) ON UPDATE CASCADE ON DELETE CASCADE
+    );
+
+DROP TABLE sale;
+
+INSERT INTO
+    sale(purchase_id, product_id)
+VALUES ("PG001", "P001"), ("PG002", "P002"), ("PG003", "P003");
+
+SELECT * FROM sale;
+
+SELECT *
+FROM products
+    LEFT JOIN sale ON sale.purchase_id = product_id;
+
+SELECT
+    products.name,
+    products.price,
+    purchases.quantity,
+    purchases.total_price,
+    purchases.buyer_id
+FROM purchases
+    INNER JOIN sale ON purchases.id = sale.purchase_id
+    INNER JOIN products ON sale.product_id = products.id
